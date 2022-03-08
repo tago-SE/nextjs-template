@@ -20,13 +20,15 @@ variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
+pool: Azure Pipelines
+
 stages:
 - stage: Build
   displayName: Build stage
   jobs:
   - job: Build
     displayName: Build
-    pool: Azure Pipelines
+    #pool: // Azure Pipelines
       #vmImage: $(vmImageName)
 
     steps:
@@ -61,7 +63,7 @@ stages:
   - deployment: Deploy
     displayName: Deploy
     environment: $(environmentName)
-    pool: Azure Pipelines
+    #pool: //Azure Pipelines
       #vmImage: $(vmImageName)
     strategy:
       runOnce:
