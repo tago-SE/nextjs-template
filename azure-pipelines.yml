@@ -26,7 +26,7 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool: Hosted Agent
+    pool: Azure Pipelines
       #vmImage: $(vmImageName)
 
     steps:
@@ -61,7 +61,7 @@ stages:
   - deployment: Deploy
     displayName: Deploy
     environment: $(environmentName)
-    pool: Hosted Agent
+    pool: Azure Pipelines
       #vmImage: $(vmImageName)
     strategy:
       runOnce:
