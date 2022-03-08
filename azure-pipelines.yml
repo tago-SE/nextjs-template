@@ -21,7 +21,6 @@ variables:
   vmImageName: 'ubuntu-latest'
 
 pool:
-  name: MyPool
   vmImage: $(vmImageName)
 
 stages:
