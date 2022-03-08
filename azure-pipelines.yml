@@ -20,14 +20,17 @@ variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
+pool:
+  vmImage: $(vmImageName)
+
 stages:
 - stage: Build
   displayName: Build stage
   jobs:
   - job: Build
     displayName: Build
-    pool: Default
-      #vmImage: $(vmImageName)
+   # pool:
+     # vmImage: $(vmImageName)
 
     steps:
     - task: NodeTool@0
@@ -61,8 +64,8 @@ stages:
   - deployment: Deploy
     displayName: Deploy
     environment: $(environmentName)
-    pool:
-      vmImage: $(vmImageName)
+    #pool:
+    #  vmImage: $(vmImageName)
     strategy:
       runOnce:
         deploy:
