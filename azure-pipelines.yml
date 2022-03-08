@@ -18,9 +18,9 @@ variables:
   environmentName: 'nextjs-template'
   
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  ##vmImageName: 'ubuntu-latest'
 
-pool: Azure Pipelines
+pool: MyPool
 
 stages:
 - stage: Build
