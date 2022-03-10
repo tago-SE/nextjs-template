@@ -44,7 +44,7 @@ stages:
     - task: Cache@2
       inputs:
       # package.json can be used if no package-lock exists
-        key: 'npm | "$(Agent.OS)" | package-lock.json'
+        key: 'npm | "$(Agent.OS)" | package.json'
         restoreKeys: |
           npm | "$(Agent.OS)"
         path: $(npm_config_cache)
