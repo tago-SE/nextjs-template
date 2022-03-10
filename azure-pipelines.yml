@@ -18,7 +18,8 @@ variables:
   environmentName: 'nextjs-template'
   
   # Npm Cache 
-  npm_config_cache: $(Pipeline.Workspace)/.npm
+  #npm_config_cache: $(Pipeline.Workspace)/.npm
+  yarn_cache_folder: $(Pipeline.Workspace)/.yarn
     
   # Agent VM image name
   ##vmImageName: 'ubuntu-latest'
@@ -41,16 +42,27 @@ stages:
         versionSpec: "16.x"
       displayName: 'Install Node.js'
     
+#    - task: Cache@2
+#      inputs:
+#        key: 'npm | "$(Agent.OS)" | package.json'
+#        restoreKeys: |
+#          npm | "$(Agent.OS)"
+#        path: $(npm_config_cache)
+#      displayName: Cache npm
+    
+#    - script: npm ci
+#      displayName: 'npm install'
     - task: Cache@2
       inputs:
-        key: 'npm | "$(Agent.OS)" | package.json'
+        key: '"yarn" | "$(Agent.OS)" | yarn.lock'
         restoreKeys: |
-          npm | "$(Agent.OS)"
-        path: $(npm_config_cache)
-      displayName: Cache npm
-    
-    - script: npm ci
-      displayName: 'npm install'
+          yarn | "$(Agent.OS)"
+          yarn
+        path: $(yarn_cache_folder)
+      displayName: Cache yarn packages
+
+    - script: yarn --frozen-lockfile
+      displayName: yarn install
 
     - script: ./node_modules/.bin/next build 
       displayName: 'npm build'
