@@ -18,7 +18,8 @@ variables:
   environmentName: 'nextjs-template'
   
   # Npm Cache 
-  npm_config_cache: $(Pipeline.Workspace)/.npm  
+  npm_config_cache: $(Pipeline.Workspace)/.npm
+    
   # Agent VM image name
   ##vmImageName: 'ubuntu-latest'
 
@@ -42,6 +43,7 @@ stages:
     
     - task: Cache@2
       inputs:
+      # package.json can be used if no package-lock exists
         key: 'npm | "$(Agent.OS)" | package-lock.json'
         restoreKeys: |
           npm | "$(Agent.OS)"
@@ -49,7 +51,6 @@ stages:
       displayName: Cache npm
     
     - script: npm ci
-    #- script: npm install
       displayName: 'npm install'
 
     - script: ./node_modules/.bin/next build 
