@@ -17,7 +17,6 @@ variables:
   # Environment name
   environmentName: 'nextjs-template'
 
-  # node_modules cache
   yarn_cache_folder: $(Pipeline.Workspace)/.yarn
     
   # Agent VM image name
@@ -37,7 +36,9 @@ stages:
       inputs:
         versionSpec: "16.x"
       displayName: 'Install Node.js'
+
     - task: Cache@2
+      enabled: false
       inputs:
         key: '"yarn" | "$(Agent.OS)" | yarn.lock'
         restoreKeys: |
