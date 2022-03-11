@@ -38,7 +38,7 @@ stages:
       displayName: 'Install Node.js'
 
     - task: Cache@2
-      enabled: false
+      enabled: true
       inputs:
         key: '"yarn" | "$(Agent.OS)" | yarn.lock'
         restoreKeys: |
