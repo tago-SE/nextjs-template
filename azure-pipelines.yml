@@ -18,7 +18,7 @@ variables:
   environmentName: 'nextjs-template'
 
   # yarn_cache_folder: $(Pipeline.Workspace)/.yarn
-  yarn_cache_folder: $(Build.SourcesDirectory)/Frontend/.yarn
+  yarn_cache_folder: $(Pipeline.Workspace)/Frontend/.yarn
 
   # Agent VM image name
   ##vmImageName: 'ubuntu-latest'
