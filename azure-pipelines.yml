@@ -17,7 +17,7 @@ variables:
   # Environment name
   environmentName: 'nextjs-template'
 
-  # yarn_cache_folder: $(Pipeline.Workspace)/.yarn
+  yarn_cache_folder: $(Pipeline.Workspace)/.yarn
   #yarn_cache_folder: $(Pipeline.Workspace)/Frontend/.yarn
 
   # Agent VM image name
@@ -41,11 +41,11 @@ stages:
     - task: Cache@2
       enabled: true
       inputs:
-        key: '"yarn" | "$(Agent.OS)" | yarn.lock'
+        key: '"yarn" | "$(Agent.OS)" | $(Build.SourcesDirectory)/Frontend/yarn.lock'
         restoreKeys: |
           yarn | "$(Agent.OS)"
           yarn
-        path: /Frontend/.yarn
+        path: $(yarn_cache_folder)
       displayName: Cache yarn packages
 
     - script: yarn --frozen-lockfile
