@@ -44,7 +44,7 @@ stages:
         restoreKeys: |
           yarn | "$(Agent.OS)"
           yarn
-        path: $(yarn_cache_folder)/.yarn
+        path: $(yarn_cache_folder)
       displayName: Cache yarn packages
 
     - script: yarn --frozen-lockfile
