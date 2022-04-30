@@ -6,7 +6,8 @@ import styles from "../styles/Home.module.css";
 
 // const { publicRuntimeConfig } = getConfig();
 
-const Home: NextPage = () => {
+// const Home: NextPage = () => {
+const Home = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -69,7 +70,7 @@ const Home: NextPage = () => {
         </a>
       </footer>
     </div>
-  );
+  )
 };
 
-export default Home;
+export default Home

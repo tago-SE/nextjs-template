@@ -1,0 +1,1 @@
+export function setEnvValue(key: string, value: string);
