@@ -65,3 +65,8 @@ yarn-error.log*
 #misc
 .agent
 .env*
+
+#prebuild and postbuild files
+prebuild.js
+defaultRedisClient.js
+RedisCache.js

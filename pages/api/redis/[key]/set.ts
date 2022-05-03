@@ -1,9 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { createRedisCache } from "../../../../src/Cache/RedisCache";
-import { redisClient } from "../../../../src/redisClient";
+import { defaultRedisClient as redisClient } from "../../../../src/defaultRedisClient";
 
 const cache = createRedisCache(redisClient, { ttl: 5 * 60 });
-
 
 
 export default async function handler(
