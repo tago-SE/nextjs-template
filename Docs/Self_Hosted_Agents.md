@@ -5,6 +5,9 @@ BuildAgent_PAT=Mygdjxrv3jtsybmni6fq3hlyh7lyx6pmjztdbadjn575qai3xmbsvq
 
 Config: https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows?view=azure-devops
 
+> server URL: https://dev.azure.com/tiagoredaelli
+> BuildAgent_PAT=Mygdjxrv3jtsybmni6fq3hlyh7lyx6pmjztdbadjn575qai3xmbsvq
+
 PS C:\agent> .\config.cmd
 Optionally run the agent interactively
 

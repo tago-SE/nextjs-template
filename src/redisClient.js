@@ -44,6 +44,7 @@ if (!process.env.REDIS_CONNECTION_STRING)
     throw new Error("REDIS_CONNECTION_STRING missing");
 if (!process.env.REDIS_PASSWORD)
     throw new Error("REDIS_PASSWORD missing");
+    
 const name = "default";
 const url = "rediss://" + process.env.REDIS_CONNECTION_STRING;
 const password = process.env.REDIS_PASSWORD;

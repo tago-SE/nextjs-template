@@ -45,8 +45,6 @@ export class RedisCache implements ICache {
         }
     }
 
-
-
     async del(key: string) {
         try {
             await this.ensureConnected();
