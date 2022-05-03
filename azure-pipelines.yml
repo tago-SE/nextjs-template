@@ -28,7 +28,7 @@ variables:
 pool: MyPool
 
 stages:
-- stage: Health Check
+- stage: HealthCheck
   jobs:
   - job: Test
     displayName: Test
