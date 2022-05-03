@@ -12,6 +12,8 @@ variables:
   azureSubscription: '5a18ae18-29ea-4485-b0d1-c0e425dff4c5'
   
   redisPassword: $(REDIS_PASSWORD)
+  redisHostName: $(REDIS_HOST_NAME)
+  redisPort: '6379'
 
   # Web app name
   webAppName: 'nextjs-template'
@@ -35,7 +37,7 @@ stages:
     steps:
     - script: |
         echo ${{ variables.redisPassword }} # outputs initialValue
-        echo $(redisPassword)
+        echo $(redisHostName)
     
 - stage: Build
   displayName: Build stage
