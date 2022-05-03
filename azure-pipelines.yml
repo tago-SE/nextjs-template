@@ -64,8 +64,9 @@ stages:
     - script: yarn --frozen-lockfile
       displayName: yarn install
 
-    - script: ./node_modules/.bin/next build 
-      displayName: 'npm build'
+    - script: yarn build
+    # - script: ./node_modules/.bin/next build 
+      displayName: 'yarn build'
 
 #     - task: ArchiveFiles@2
 #       displayName: 'Archive files'
