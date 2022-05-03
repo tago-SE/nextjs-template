@@ -10,6 +10,8 @@ variables:
 
   # Azure Resource Manager connection created during pipeline creation
   azureSubscription: '5a18ae18-29ea-4485-b0d1-c0e425dff4c5'
+  
+  redisPassword: $(REDIS_PASSWORD)
 
   # Web app name
   webAppName: 'nextjs-template'
@@ -26,6 +28,15 @@ variables:
 pool: MyPool
 
 stages:
+- stage: Health Check
+  jobs:
+  - job: Test
+    displayName: Test
+    steps:
+    - script: |
+        echo ${{ variables.redisPassword }} # outputs initialValue
+        echo $(redisPassword)
+    
 - stage: Build
   displayName: Build stage
   jobs:
