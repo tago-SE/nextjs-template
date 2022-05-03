@@ -11,6 +11,7 @@ variables:
   # Azure Resource Manager connection created during pipeline creation
   azureSubscription: '5a18ae18-29ea-4485-b0d1-c0e425dff4c5'
   
+  # Redis Cache
   redisPassword: $(REDIS_PASSWORD)
   redisHostName: $(REDIS_HOST_NAME)
   redisPort: '6379'
